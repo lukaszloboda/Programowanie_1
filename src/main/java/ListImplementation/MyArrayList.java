@@ -1,24 +1,20 @@
 package ListImplementation;
 
-import java.util.function.Function;
-import java.util.function.Supplier;
+import java.lang.reflect.Array;
 
 public class MyArrayList<T> implements List<T> {
 
     private T[] array;
     private int length;
     private final int INITIALCAPACITY = 10;
-    private Function<Integer, T[]> supplier;
 
-    public MyArrayList(Function<Integer, T[]> supplier) {
-        this.supplier = supplier;
-        this.array = supplier.apply(INITIALCAPACITY);
+    public MyArrayList() {
+        array = (T[]) new Object[INITIALCAPACITY];
         this.length = 0;
     }
 
-    public MyArrayList(int preferredInitialCapacity, Function<Integer, T[]> supplier) {
-        this.supplier = supplier;
-        this.array = supplier.apply(preferredInitialCapacity);
+    public MyArrayList(int preferredInitialCapacity) {
+        array = (T[]) new Object[preferredInitialCapacity];
         this.length = 0;
     }
 
@@ -45,7 +41,7 @@ public class MyArrayList<T> implements List<T> {
     public T get(int index) {
         if (index >= length)
             throw new IndexOutOfBoundsException("Index out of bounds");
-        return (T) array[index];
+        return array[index];
     }
 
     public int size() {
@@ -53,9 +49,9 @@ public class MyArrayList<T> implements List<T> {
     }
 
     private void addCapacity(int capacityChange) {
-        Object[] temp = new Object[length + capacityChange];
+        T[] temp = (T[]) new Object[length+capacityChange];
         System.arraycopy(array, 0, temp, 0, length);
-        array = (T[]) temp;
+        array = temp;
     }
 
     @Override

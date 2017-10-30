@@ -2,7 +2,7 @@ package ListImplementation;
 
 public class MyLinkedList<T> implements List<T> {
 
-    private Node first;
+    private Node<T> first;
     private int size;
 
     public MyLinkedList() {

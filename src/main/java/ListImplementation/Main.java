@@ -5,7 +5,7 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
-        List<Integer> list = new MyArrayList<Integer>(x -> new Integer[x]);
+        List<Integer> list = new MyArrayList<Integer>();
         Random random = new Random();
         for (int i = 0; i < 5; i++) {
             list.add((random.nextInt(1000) / 10));
@@ -14,7 +14,7 @@ public class Main {
         System.out.println(list + "\n");
         System.out.println("-------------------------------\n");
         List<Integer> linkedList = new MyLinkedList<Integer>();
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 3; i++) {
             linkedList.add((random.nextInt(1000) / 10));
         }
         System.out.println("Implementacja LinkedListy:");
@@ -36,7 +36,16 @@ public class Main {
         stos.pop();
         stos.pop();
         stos.pop();
-        stos.pop();
         System.out.println(stos);
+        System.out.println("----- stos na bazie tabeli: -----");
+        MyStackArray<Integer> stos2 = new MyStackArray<>();
+        stos2.push(5);
+        stos2.push(1);
+        stos2.push(3);
+        System.out.println(stos2);
+        stos2.pop();
+        System.out.println(stos2);
+        stos2.pop();
+        System.out.println(stos2);
     }
 }

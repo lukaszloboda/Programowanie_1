@@ -2,7 +2,7 @@ package ListImplementation;
 
 public class StackNode<T> {
     T value;
-    StackNode previous;
+    StackNode<T> previous;
 
     public StackNode(T value) {
         this.value = value;
