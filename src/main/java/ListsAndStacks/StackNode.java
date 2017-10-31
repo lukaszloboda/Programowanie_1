@@ -1,4 +1,4 @@
-package ListImplementation;
+package ListsAndStacks;
 
 public class StackNode<T> {
     T value;

@@ -1,4 +1,4 @@
-package ListImplementation;
+package ListsAndStacks;
 
 public class MyLinkedList<T> implements List<T> {
 

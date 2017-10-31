@@ -1,4 +1,4 @@
-package ListImplementation;
+package ListsAndStacks;
 
 public class MyStack<T> implements Stack<T> {
 
@@ -31,5 +31,9 @@ public class MyStack<T> implements Stack<T> {
         }
         text.insert(0, actual.value).insert(0, "[");
         return text.toString();
+    }
+
+    public boolean isEmpty() {
+        return (stackTop == null);
     }
 }

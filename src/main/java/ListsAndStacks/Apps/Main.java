@@ -1,4 +1,5 @@
-package ListImplementation;
+package ListsAndStacks.Apps;
+import ListsAndStacks.*;
 
 import java.util.Random;
 

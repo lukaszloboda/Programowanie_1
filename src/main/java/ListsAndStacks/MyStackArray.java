@@ -1,13 +1,15 @@
-package ListImplementation;
+package ListsAndStacks;
+
+import java.util.EmptyStackException;
 
 public class MyStackArray<T> implements Stack<T> {
 
-    private Object[] array;
+    private T[] array;
     private final int INITIALCAPACITY = 10;
     private int length;
 
     public MyStackArray() {
-        array = new Object[INITIALCAPACITY];
+        array = (T[]) new Object[INITIALCAPACITY];
         length = 0;
     }
 
@@ -20,16 +22,15 @@ public class MyStackArray<T> implements Stack<T> {
     }
 
     public T pop() {
-        if (length == 0)
-            throw new StackOverflowError("Stack is empty!");
-        T returnValue = (T) array[length-1];
+        if (length <= 0)
+            throw new EmptyStackException();
+        T returnValue = (T) array[length - 1];
         --length;
         return returnValue;
-
     }
 
     private void addCapacity(int capacityChange) {
-        Object[] temp = new Object[length + capacityChange];
+        T[] temp = (T[]) new Object[length + capacityChange];
         System.arraycopy(array, 0, temp, 0, length);
         array = temp;
     }
